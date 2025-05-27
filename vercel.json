@@ -1,0 +1,21 @@
+{
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  },
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/docs/public/assets/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "src": "^/(.*)",
+      "dest": "/$1",
+      "continue": true
+    }
+  ]
+}
